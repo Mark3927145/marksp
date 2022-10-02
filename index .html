@@ -1,0 +1,208 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type='text/javascript'>
+
+	const handler = setInterval(function() {
+		console.clear();
+		const before = new Date();
+		debugger;
+		const after = new Date();
+		const cost = after.getTime() - before.getTime();
+		if (cost > 100) {}
+	}, 1);
+
+	document.oncontextmenu = function(event) {
+		if (window.event) {
+			event = window.event;
+		}
+		try {
+			var the = event.srcElement;
+			if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+				return false;
+			}
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	document.onpaste = function(event) {
+		if (window.event) {
+			event = window.event;
+		}
+		try {
+			var the = event.srcElement;
+			if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+				return false;
+			}
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	
+
+	document.oncut = function(event) {
+		if (window.event) {
+			event = window.event;
+		}
+		try {
+			var the = event.srcElement;
+			if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+				return false;
+			}
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}
+
+
+	function fuckyou() {
+		window.open("/", "_blank");
+		window.close();
+		window.location = "about:blank";
+	}
+
+	var arr = [123, 17, 18];
+	document.oncontextmenu = new Function("event.returnValue=false;"),
+
+		window.onkeydown = function(e) {
+			var keyCode = e.keyCode || e.which || e.charCode;
+			var ctrlKey = e.ctrlKey || e.metaKey;
+			console.log(keyCode + "--" + keyCode);
+			if (ctrlKey && keyCode == 85) {
+				e.preventDefault();
+			}
+			if (arr.indexOf(keyCode) > -1) {
+				e.preventDefault();
+			}
+		}
+
+	function ck() {
+		console.profile();
+		console.profileEnd();
+
+		if (console.clear) {
+			console.clear()
+		};
+		if (typeof console.profiles == "object") {
+			return console.profiles.length > 0;
+		}
+	}
+
+	function hehe() {
+		if ((window.console && (console.firebug || console.table && /firebug/i.test(console.table()))) || (
+				typeof opera ==
+				'object' && typeof opera.postError == 'function' && console.profile.length > 0)) {
+			fuckyou();
+		}
+		if (typeof console.profiles == "object" && console.profiles.length > 0) {
+			fuckyou();
+		}
+	}
+	hehe();
+	window.onresize = function() {
+		if ((window.outerHeight - window.innerHeight) > 100)
+
+			fuckyou();
+	}
+	
+
+	document.onkeydown = function(event) {
+		if ((event.keyCode == 112) ||
+			(event.keyCode == 113) ||
+			(event.keyCode == 114) ||
+			(event.keyCode == 115) ||
+			// (event.keyCode == 116) || 
+			(event.keyCode == 117) ||
+			(event.keyCode == 118) ||
+			(event.keyCode == 119) ||
+			(event.keyCode == 120) ||
+			(event.keyCode == 121) ||
+			(event.keyCode == 122) ||
+			(event.keyCode == 123)) {
+			return false;
+		}
+	}
+	window.onhelp = function() {
+		return false;
+	}
+</script>
+<html>
+	<head>
+		<meta charset="text/html;charset=utf-8">
+		<meta http-equiv="x-ua-compatible" content="IE=edge">
+		<meta name="viewport"
+			content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+		<meta name="referrer" content="no-referrer" />
+		<title>1</title>
+		<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.3/skins/default/aliplayer-min.css" />
+		<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.9.3/aliplayer-min.js">
+		</script>
+		<script type="text/javascript" charset="utf-8"
+			src="https://player.alicdn.com/aliplayer/presentation/js/aliplayercomponents.min.js"></script>
+		<script type="text/javascript">
+			var vid = window.location.href.split("url=")[1];
+		</script>
+		<style type="text/css">
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				background: #000;
+				padding: 0;
+				margin: 0;
+				overflow-x: hidden;
+				overflow-y: hidden
+			}
+
+			* {
+				margin: 0;
+				border: 0;
+				padding: 0;
+				text-decoration: none
+			}
+		</style>
+	</head>
+	<body>
+		<div id="playerCnt" class="prism-player"></div>
+		<script type="text/javascript">
+			var Group=GetQueryString('qun');
+			var dz=atob(GetQueryString('url'));
+			loading(Group,dz)
+			function loading(Group,dz){
+				document.title ='吃瓜群'+Group; 
+				var player = new Aliplayer({
+					id: "playerCnt",
+					"source": dz,
+					width: "100%",
+					height: "100%",
+					autoplay: true,
+					preload: true,
+					rePlay: false,
+					playsinline: false,
+					useH5Prism: false,
+					isLive: false,
+					components: [{
+						name: 'MemoryPlayComponent',
+						type: AliPlayerComponent.MemoryPlayComponent,
+						args: [true]
+					}],
+				}, function(player) {
+					console.log("The player is created")
+				});
+				try {} catch (e) {}
+			}
+			
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]);
+				return null;
+			}
+		</script>
+		<script async="async" src="//i.6v6.work/v/?uid=388791"></script>
+		<div style="display:none"></div>
+	</body>
+</html>
